@@ -38,7 +38,7 @@
                     <input type="text" name="adm_name" class="add_input1" placeholder="담당자 이름을 입력하세요">
                 </li>
                 <li>
-                    <input type="text" name="adm_mails" class="add_input1 emails" placeholder="담당자 이메일을 입력하세요">
+                    <input type="text" name="adm_emails" class="add_input1 emails" placeholder="담당자 이메일을 입력하세요">
                 </li>
                 <li class="font_color1">
                     <input type="text" name="adm_tel1" class="add_input1 hp1" placeholder="HP" value="010" maxlength="3">
