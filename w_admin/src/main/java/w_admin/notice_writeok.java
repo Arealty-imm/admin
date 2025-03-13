@@ -52,7 +52,7 @@ public class notice_writeok extends HttpServlet {
 				if(result > 0) {
 					this.pw.write("<script>"
 							+ "alert('게시물이 올바르게 등록 되었습니다.');"
-							+ "location.href = './notice_list.do';"
+							+ "location.href = './notice_list.jsp';"
 							+ "</script>");
 				}
 				
@@ -62,7 +62,7 @@ public class notice_writeok extends HttpServlet {
 				if(msg.equals("ok")) {
 					this.pw.write("<script>"
 							+ "alert('첨부파일 추가 게시물이 올바르게 등록 되었습니다.');"
-							+ "location.href = './notice_list.do';"
+							+ "location.href = './notice_list.jsp';"
 							+ "</script>");
 				}
 				else {
