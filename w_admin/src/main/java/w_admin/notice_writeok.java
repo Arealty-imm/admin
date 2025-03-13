@@ -44,6 +44,7 @@ public class notice_writeok extends HttpServlet {
 			if(filesize == 0) {
 				sql = "insert into notice (nidx,ncheck,subject,writer,texts,ndate)"
 					+ "values ('0',?,?,?,?,now())";
+				this.ps = this.con.prepareStatement(sql); 
 				this.ps.setString(1, ncheck);
 				this.ps.setString(2, subject);
 				this.ps.setString(3, writer);

@@ -30,5 +30,13 @@
 <url-pattern>/w_admin/notice_writeok.do</url-pattern>
 </servlet-mapping>
 
+  <servlet>
+  	<servlet-name>notice_list</servlet-name>
+  	<servlet-class>w_admin.notice_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_list</servlet-name>
+  	<url-pattern>/notice_list.do</url-pattern>
+  </servlet-mapping>
 
 </web-app>
