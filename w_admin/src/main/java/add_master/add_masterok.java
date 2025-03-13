@@ -55,8 +55,8 @@ public class add_masterok extends HttpServlet {
 			
 			if(result > 0) {
 				this.pw.write("<script>"
-						+ "alert('관리자 회원가입이 정상적으로 완료 되었습니다.')"
-						+ "location.href='./index.html'"
+						+ "alert('관리자 회원가입이 정상적으로 완료 되었습니다.');"
+						+ "location.href='./index.jsp';"
 						+ "</script>");
 			}
 			
