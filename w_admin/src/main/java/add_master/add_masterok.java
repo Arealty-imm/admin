@@ -27,17 +27,22 @@ public class add_masterok extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		this.pw = response.getWriter();
 		m_dbinfo db = new m_dbinfo();
+		m_md5 md5 = new m_md5();
 		
 		try {
+			
 			this.con = db.db_info();
 			//md_5 모델 추가 pw 수정
+			
+			String adm_pass = request.getParameter("adm_pass");
+			adm_pass = md5.md5_code(adm_pass);
 			
 			 this.sql = "INSERT INTO adm_info (admidx, adm_id, adm_pass, adm_emails, adm_name, adm_tel1, "
 			           + "adm_tel2, adm_tel3, adm_dp, adm_pos, adm_date) "
 			           + "VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.ps.setString(1,request.getParameter("adm_id"));
-			this.ps.setString(2,request.getParameter("adm_pass"));
+			this.ps.setString(2,adm_pass);
 			this.ps.setString(3,request.getParameter("adm_emails"));
 			this.ps.setString(4,request.getParameter("adm_name"));
 			this.ps.setString(5,request.getParameter("adm_tel1"));
