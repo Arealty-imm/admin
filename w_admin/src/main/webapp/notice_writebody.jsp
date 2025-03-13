@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <main class="maincss">
-<form id="frm" method="post" action="./notice_writeok.do" enctype="multipart/form-data">
+<form id="frm" method="post" action="<%= request.getContextPath() %>/w_admin/notice_writeok.do" enctype="multipart/form-data">
 <section>
     <p>공지사항 등록페이지</p>
 <div class="write_view">
