@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<web-app xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   
   <display-name>w_admin</display-name>
+
+  <servlet>
+  	<servlet-name>loginok</servlet-name>
+  	<servlet-class>adm_login.loginok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>loginok</servlet-name>
+  	<url-pattern>/loginok.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>add_masterok</servlet-name>
+  	<servlet-class>add_master.add_masterok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>add_masterok</servlet-name>
+  	<url-pattern>/add_masterok.do</url-pattern>
+  </servlet-mapping>
   
 <servlet>
 <servlet-name>notice_writeok</servlet-name>
@@ -9,7 +27,16 @@
 </servlet>
 <servlet-mapping>
 <servlet-name>notice_writeok</servlet-name>
-<url-pattern>/w_admin/notice_writeok.do</url-pattern>
+<url-pattern>/notice_writeok.do</url-pattern>
 </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>notice_list</servlet-name>
+  	<servlet-class>w_admin.notice_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_list</servlet-name>
+  	<url-pattern>/notice_list.do</url-pattern>
+  </servlet-mapping>
 
 </web-app>

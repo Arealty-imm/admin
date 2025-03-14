@@ -1,9 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	HttpSession se = request.getSession();
+    	String adm_name = (String)session.getAttribute("adm_name");
+    	String adm_id = (String)session.getAttribute("adm_id");
+    	String adm_pass = (String)session.getAttribute("adm_pass");
+    	
+    	if (adm_id == null) {
+            // 로그인하지 않은 상태일 경우 로그인 페이지로 리다이렉트
+            //response.sendRedirect("./index.jsp");
+        }
+    %>
 <header class="headercss">
     <div class="header_div">
         <p><img src="./img/logo.png" class="logo_sm"> ADMINISTRATOR</p>
-        <p>홍길동 관리자 <a href="#">[개인정보 수정]</a> <a href="#">[로그아웃]</a></p>
+        <p>[<%=adm_id %>] <%=adm_name%> 관리자 <a href="#">[개인정보 수정]</a> <a href="#">[로그아웃]</a></p>
     </div>
 </header>
 <nav class="navcss">
