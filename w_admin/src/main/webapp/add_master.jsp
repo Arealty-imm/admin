@@ -27,7 +27,7 @@
                 <li class="font_color1">아이디 및 패스워드 정보</li>
                 <li>
                     <input type="text" name="adm_id" class="add_input1" placeholder="생성할 관리자 아이디를 입력하세요">
-                    <input type="button" id="adm_id2" class="btn_button" onclick="idch()" value="종복체크">
+                    <input type="button" id="adm_id" class="btn_button" onclick="idck()" value="종복체크">
                 </li>
                 <li>
                     <input type="password" name="adm_pass" class="add_input1" placeholder="접속할 패스워드를 입력하세요">

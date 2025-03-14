@@ -72,7 +72,7 @@ public class loginok extends HttpServlet {
 	                 
 	                 this.pw.write("<script>"
 	                            + "alert('정상적으로 로그인 하셨습니다.');"
-	                            + "location.href='./notice_list.jsp';"//어디 페이지로 갈지 .. 로그인 후 메인
+	                            + "location.href='./admin_siteok.do';"//어디 페이지로 갈지 .. 로그인 후 메인
 	                            + "</script>");
 	              
 				
