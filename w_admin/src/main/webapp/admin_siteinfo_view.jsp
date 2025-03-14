@@ -8,8 +8,6 @@ siteinfo_dto siteInfo = (siteinfo_dto) info_session.getAttribute("siteInfo");
 
 String adm_emails = (String)session.getAttribute("adm_emails");
 
-out.print(adm_emails);
-
 // 최초접속시 기본값 설정
 if (siteInfo == null) {
     siteInfo = new siteinfo_dto();
@@ -68,7 +66,7 @@ if(adm_emails != null && admin_mail == null){
     <li>포인트 사용 유/무</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="use_point" value="Y" <%= "Y".equals(use_point) ? "checked" : "" %>>포인트 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="use_point" value="N" <%= "N".equals(use_point) ? "checked" : "" %> >포인트 미사용</label></em>
+        <em><label><input type="radio" class="ckclass" name="use_point" value="N" <%= (use_point == null || use_point.equals("N")) ? "checked" : "" %>>포인트 미사용</label></em>
     </li>
 </ul>
 <ul class="info_form2" style="border-bottom:1px solid rgb(81, 61, 61);">
@@ -117,7 +115,7 @@ if(adm_emails != null && admin_mail == null){
 <ul class="info_form2">
     <li>사업장 우편번호</li>
     <li>
-        <input type="text" class="in_form0" value="<%= corp_post != null ? corp_post : "" %>" name="corp_post" id="numberInput"> 
+        <input type="text" class="in_form0" maxlength="5" value="<%= corp_post != null ? corp_post : "" %>" name="corp_post" id="numberInput"> 
     </li>
     <li>사업장 주소</li>
     <li>
@@ -151,21 +149,21 @@ if(adm_emails != null && admin_mail == null){
     <li>신용카드 결제 사용</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="use_card" value="Y" <%= "Y".equals(use_card) ? "checked" : "" %>> 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="use_card" value="N" <%= "N".equals(use_card) ? "checked" : "" %>> 미사용</label></em> ※ 해당 PG사가 있을 경우 사용으로 변경합니다.
+        <em><label><input type="radio" class="ckclass" name="use_card" value="N" <%= use_card == null || "N".equals(use_card) ? "checked" : "" %>> 미사용</label></em> ※ 해당 PG사가 있을 경우 사용으로 변경합니다.
     </li>
 </ul>
 <ul class="info_form">
     <li>휴대폰 결제 사용</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="use_phone" value="Y" <%= "Y".equals(use_phone) ? "checked" : "" %>> 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="use_phone" value="N" <%= "N".equals(use_phone) ? "checked" : "" %>> 미사용</label></em> ※ 주문시 휴대폰 결제를 가능하게 할 것인지를 설정합니다.
+        <em><label><input type="radio" class="ckclass" name="use_phone" value="N" <%= use_phone == null || "N".equals(use_phone) ? "checked" : "" %>> 미사용</label></em> ※ 주문시 휴대폰 결제를 가능하게 할 것인지를 설정합니다.
     </li>
 </ul>
 <ul class="info_form">
     <li>도서상품권 결제사용</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="use_giftcard" value="Y" <%= "Y".equals(use_giftcard) ? "checked" : "" %>> 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="use_giftcard" value="N" <%= "N".equals(use_giftcard) ? "checked" : "" %>> 미사용</label></em> ※ 도서상품권 결제만 적용이 되며, 그 외에 상품권은 결제 되지 않습니다.
+        <em><label><input type="radio" class="ckclass" name="use_giftcard" value="N" <%= use_giftcard == null || "N".equals(use_giftcard) ? "checked" : "" %>> 미사용</label></em> ※ 도서상품권 결제만 적용이 되며, 그 외에 상품권은 결제 되지 않습니다.
     </li>
 </ul>
 <ul class="info_form2">
@@ -182,7 +180,7 @@ if(adm_emails != null && admin_mail == null){
     <li>현금 영수증 발급사용</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="cash_receipt" value="Y" <%= "Y".equals(cash_receipt) ? "checked" : "" %>> 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="cash_receipt" value="N" <%= "N".equals(cash_receipt) ? "checked" : "" %>> 미사용</label></em> ※ 현금영수증 관련 사항은 PG사 가입이 되었을 경우 사용가능 합니다.
+        <em><label><input type="radio" class="ckclass" name="cash_receipt" value="N" <%= cash_receipt == null || "N".equals(cash_receipt) ? "checked" : "" %>> 미사용</label></em> ※ 현금영수증 관련 사항은 PG사 가입이 되었을 경우 사용가능 합니다.
     </li>
 </ul>
 <ul class="info_form2">
@@ -199,7 +197,7 @@ if(adm_emails != null && admin_mail == null){
     <li>희망배송일</li>
     <li class="checkcss">
         <em><label><input type="radio" class="ckclass" name="delivery_date" value="Y" <%= "Y".equals(delivery_date) ? "checked" : "" %>> 사용</label></em> 
-        <em><label><input type="radio" class="ckclass" name="delivery_date" value="N" <%= "N".equals(delivery_date) ? "checked" : "" %>> 미사용</label></em> ※ 희망배송일 사용시 사용자가 직접 설정 할 수 있습니다.
+        <em><label><input type="radio" class="ckclass" name="delivery_date" value="N" <%= delivery_date == null || "N".equals(delivery_date) ? "checked" : "" %>> 미사용</label></em> ※ 희망배송일 사용시 사용자가 직접 설정 할 수 있습니다.
     </li>
 </ul>
 </div>
