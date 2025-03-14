@@ -1,4 +1,8 @@
 function save_site() {
+	var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+	
+	
 	if(frm.page_name.value == ""){
 		alert("홈페이지 이름을 입력해주세요.");
 		frm.page_name.focus();
@@ -54,10 +58,25 @@ function save_site() {
 		alert("희망배송일을 선택해주세요.");
 		frm.delivery_date.focus();
 	} else {
-		frm.submit();
+		if (!emailPattern.test(frm.admin_mail.value) || !emailPattern.test(frm.info_mgr_email.value)) {
+        	alert("올바른 이메일 주소를 입력해주세요."); 
+    	} else {
+			frm.submit();
+		}
 	}
 }
-
+	
 function cancel_site(){
-	window.location.reload();
+	if (confirm("정말로 취소하시겠습니까?")) {
+	        window.location.href = "./cancel_site.do";
+	   }
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("numberInput").addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, ''); // 숫자만 허용
+    });
+});
+
