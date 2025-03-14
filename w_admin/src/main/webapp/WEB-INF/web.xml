@@ -4,6 +4,15 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>ajax_idck</servlet-name>
+  	<servlet-class>adm_login.ajax_idck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax_idck</servlet-name>
+  	<url-pattern>/ajax_idck.do</url-pattern>
+  </servlet-mapping>	
+
+  <servlet>
   	<servlet-name>logout</servlet-name>
   	<servlet-class>adm_login.logout</servlet-class>
   </servlet>
@@ -12,7 +21,6 @@
   	<url-pattern>/logout.do</url-pattern>
   </servlet-mapping>	
 	
-
   <servlet>
   	<servlet-name>index</servlet-name>
   	<servlet-class>adm_index.index</servlet-class>
