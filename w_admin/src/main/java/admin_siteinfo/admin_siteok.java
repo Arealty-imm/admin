@@ -15,20 +15,16 @@ public class admin_siteok extends HttpServlet {
     
 	PrintWriter pw = null;
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 request.getRequestDispatcher("./admin_siteinfo.jsp").forward(request, response);
-	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
 		siteinfo_dto dto = new siteinfo_dto();
-		
+
 		dto.setPageName(request.getParameter("page_name"));
         dto.setAdminMail(request.getParameter("admin_mail"));
         dto.setUsePoint(request.getParameter("use_point"));
-        dto.setWelcomePoints(Integer.parseInt(request.getParameter("welcome_points")));
         dto.setUserLevel(request.getParameter("user_level"));
         dto.setCorpName(request.getParameter("corp_name"));
         dto.setBusinessNo(request.getParameter("business_no"));
@@ -45,13 +41,35 @@ public class admin_siteok extends HttpServlet {
         dto.setUseCard(request.getParameter("use_card"));
         dto.setUsePhone(request.getParameter("use_phone"));
         dto.setUseGiftcard(request.getParameter("use_giftcard"));
-        dto.setMinUsePoint(Integer.parseInt(request.getParameter("min_use_point")));
-        dto.setMaxUsePoint(Integer.parseInt(request.getParameter("max_use_point")));
         dto.setCashReceipt(request.getParameter("cash_receipt"));
         dto.setDeliveryCorp(request.getParameter("delivery_corp"));
-        dto.setDeliveryPay(Integer.parseInt(request.getParameter("delivery_pay")));
         dto.setDeliveryDate(request.getParameter("delivery_date"));
         dto.setEntryDate(request.getParameter("entry_date"));
+        
+        
+        // parseInt NumberFormatExcetion 방지
+        String welcome_points = request.getParameter("welcome_points");
+        String min_use_point = request.getParameter("min_use_points");
+        String max_use_point = request.getParameter("max_use_point");
+        String delivery_pay = request.getParameter("delivery_pay");
+        
+        if(welcome_points == null) {
+        	welcome_points = "0";        
+        }
+        if(min_use_point == null) {
+        	min_use_point = "0";        
+        }
+        if(max_use_point == null) {
+        	max_use_point = "0";
+        }
+        if(delivery_pay == null) {
+        	delivery_pay = "0";
+        }
+        
+        dto.setWelcomePoints(Integer.parseInt(welcome_points));
+        dto.setMinUsePoint(Integer.parseInt(min_use_point));
+        dto.setMaxUsePoint(Integer.parseInt(max_use_point));
+        dto.setDeliveryPay(Integer.parseInt(delivery_pay));
         
         int result = new insert_siteinfo().insert_siteinfo(dto);
         this.pw = response.getWriter();

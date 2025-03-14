@@ -6,6 +6,10 @@
 HttpSession info_session = request.getSession();
 siteinfo_dto siteInfo = (siteinfo_dto) info_session.getAttribute("siteInfo");
 
+String adm_emails = (String)session.getAttribute("adm_emails");
+
+out.print(adm_emails);
+
 // 최초접속시 기본값 설정
 if (siteInfo == null) {
     siteInfo = new siteinfo_dto();
@@ -37,8 +41,13 @@ String cash_receipt = siteInfo.getCashReceipt();
 String delivery_corp = siteInfo.getDeliveryCorp();
 int delivery_pay = siteInfo.getDeliveryPay();
 String delivery_date = siteInfo.getDeliveryDate();
+
+
+if(adm_emails != null && admin_mail == null){
+	admin_mail = adm_emails;
+}
 %>
-<form id="frm" method="post" action="./admin_siteok.do">
+<form id="frm" method="get" action="./admin_siteok.do">
 <main class="maincss">
 <section>
     <p>홈페이지 가입환경 설정</p>
@@ -65,11 +74,11 @@ String delivery_date = siteInfo.getDeliveryDate();
 <ul class="info_form2" style="border-bottom:1px solid rgb(81, 61, 61);">
     <li>회원가입시 적립금</li>
     <li>
-        <input type="text" class="in_form3" maxlength="5" value="<%= welcome_points != 0 ? welcome_points : "" %>" name="welcome_points"> 점
+        <input type="text" class="in_form3" maxlength="5" value="<%= welcome_points != 0 ? welcome_points : "" %>" id="numberInput" name="welcome_points"> 점
     </li>
     <li>회원가입시 권한레벨</li>
     <li>
-        <input type="text" class="in_form3" maxlength="1" value="<%= user_level != null ? user_level : "" %>" name="user_level"> 레벨
+        <input type="text" class="in_form3" maxlength="1" value="<%= user_level != null ? user_level : "" %>" id="numberInput" name="user_level"> 레벨
     </li>
 </ul> 
 </div>
@@ -108,7 +117,7 @@ String delivery_date = siteInfo.getDeliveryDate();
 <ul class="info_form2">
     <li>사업장 우편번호</li>
     <li>
-        <input type="text" class="in_form0" value="<%= corp_post != null ? corp_post : "" %>" name="corp_post"> 
+        <input type="text" class="in_form0" value="<%= corp_post != null ? corp_post : "" %>" name="corp_post" id="numberInput"> 
     </li>
     <li>사업장 주소</li>
     <li>
@@ -162,11 +171,11 @@ String delivery_date = siteInfo.getDeliveryDate();
 <ul class="info_form2">
     <li>결제 최소 포인트</li>
     <li>
-        <input type="text" class="in_form0" maxlength="5" value="<%= min_use_point != 0 ? min_use_point : 1000 %>" name="min_use_point"> 점
+        <input type="text" class="in_form0" maxlength="5" value="<%= min_use_point != 0 ? min_use_point : 1000 %>" id="numberInput" name="min_use_point"> 점
     </li>
     <li>결제 최대 포인트</li>
     <li>
-        <input type="text" class="in_form0" maxlength="5" value="<%= max_use_point != 0 ? max_use_point : "" %>" name="max_use_point"> 점
+        <input type="text" class="in_form0" maxlength="5" value="<%= max_use_point != 0 ? max_use_point : "" %>" id="numberInput" name="max_use_point"> 점
     </li>
 </ul>
 <ul class="info_form">
@@ -183,7 +192,7 @@ String delivery_date = siteInfo.getDeliveryDate();
     </li>
     <li>배송비 가격</li>
     <li>
-        <input type="text" class="in_form0" maxlength="7" value="<%= delivery_pay != 0 ? delivery_pay : "" %>" name="delivery_pay"> 원
+        <input type="text" class="in_form0" maxlength="7" value="<%= delivery_pay != 0 ? delivery_pay : "" %>" id="numberInput" name="delivery_pay"> 원
     </li>
 </ul>
 <ul class="info_form" style="border-bottom:1px solid rgb(81, 61, 61);">
