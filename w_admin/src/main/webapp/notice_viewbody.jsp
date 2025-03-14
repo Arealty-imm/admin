@@ -30,7 +30,7 @@
 </ul>
 </div>
 <div class="board_btn">
-    <button class="border_del">공지목록</button>
+    <button class="border_del"><a href="./notice_list.do">공지목록</a></button>
     <button class="border_add">공지수정</button>
     <button class="border_modify" style="margin-left: 8px;">공지삭제</button>
 </div>

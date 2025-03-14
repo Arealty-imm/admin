@@ -32,11 +32,11 @@ if(pno == null || pno.equals("1")){
     for(int f=0; f<notice.size(); f++){ %>
     <ol>
         <li><input type="checkbox"></li>
-        <li><%=total%></li>
-        <li><%=notice.get(f).get(1)%></li>
-        <li><%=notice.get(f).get(2)%></li>
-        <li><%=notice.get(f).get(4).substring(0,10)%></li>
-        <li><%=notice.get(f).get(3)%></li>
+        <li><%=total%></li>					<!-- NO -->
+        <li onclick="notice_view('<%=notice.get(f).get(0)%>')"><%=notice.get(f).get(1)%></li>			<!-- 제목 -->
+        <li><%=notice.get(f).get(2)%></li>			<!-- 글쓴이 -->
+        <li><%=notice.get(f).get(4).substring(0,10)%></li> <!-- 날짜 -->
+        <li><%=notice.get(f).get(3)%></li>		<!-- 조회 -->
     </ol>
     <%
     total--;
@@ -61,3 +61,9 @@ if(pno == null || pno.equals("1")){
     </div>
 </section>
 </main>
+<script>
+function notice_view(no){
+	//해당 게시물의 내용 및 첨부파일을 확인할수 있는 view페이지
+	location.href='./notice_view.jsp?nidx='+no //./do로 경로변경
+}
+</script>
