@@ -27,9 +27,10 @@ public class notice_writeok extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		this.pw = response.getWriter();
-		
+
 		Part nfile = request.getPart("nfile");
 		long filesize = nfile.getSize();
+		this.pw.print("dddd");
 		
 		try {
 			this.con = db.db_info();
@@ -40,9 +41,8 @@ public class notice_writeok extends HttpServlet {
 			
 			String sql = "";
 			int result = 0;
-			this.pw.print("dddd");
 			if(filesize == 0) {
-				sql = "insert into notice (nidx,ncheck,subject,writer,texts,ndate)"
+				sql = "insert into notice (nidx,ncheck,subject,writer,texts,ndate) "
 					+ "values ('0',?,?,?,?,now())";
 				this.ps = this.con.prepareStatement(sql); 
 				this.ps.setString(1, ncheck);
@@ -53,7 +53,7 @@ public class notice_writeok extends HttpServlet {
 				if(result > 0) {
 					this.pw.write("<script>"
 							+ "alert('게시물이 올바르게 등록 되었습니다.');"
-							+ "location.href = './notice_list.jsp';"
+							+ "location.href = './notice_list.do';"
 							+ "</script>");
 				}
 				
@@ -63,7 +63,7 @@ public class notice_writeok extends HttpServlet {
 				if(msg.equals("ok")) {
 					this.pw.write("<script>"
 							+ "alert('첨부파일 추가 게시물이 올바르게 등록 되었습니다.');"
-							+ "location.href = './notice_list.jsp';"
+							+ "location.href = './notice_list.do';"
 							+ "</script>");
 				}
 				else {

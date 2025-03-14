@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <main class="maincss">
-<form id="frm" method="post" action="<%= request.getContextPath() %>/w_admin/notice_writeok.do" enctype="multipart/form-data">
+<form id="frm" method="post" action="./notice_writeok.do" enctype="multipart/form-data">
 <section>
     <p>공지사항 등록페이지</p>
 <div class="write_view">
@@ -26,7 +26,7 @@
 <ul>
     <li>첨부파일</li>
     <li>
-        <input type="file"> ※ 첨부파일 최대 용량은 2MB 입니다.       
+        <input type="file" name="nfile"> ※ 첨부파일 최대 용량은 2MB 입니다.       
     </li>
 </ul>
 <ul class="ul_height">
