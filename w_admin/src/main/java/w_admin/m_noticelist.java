@@ -17,16 +17,16 @@ public class m_noticelist {
 	ArrayList<String> data = null; //데이터를 배열로 가져옴, 각 컬럼별 값을 저장
 	ArrayList<ArrayList<String>> alldata = null; //Database전체 데이터를 저장, 그룹별로 가져오기 위해 2차배열 사용
 	
-	int spage = 0; //첫번째 노드 (배열값)
-	int ea = 3; //한페이지당 계시물을 3개씩 출력
+	int spage = 0; 
+	int ea = 10;
 	
-	public m_noticelist(int s) { //게시판 밑에 번호 로직
-		if(s>0) { //1번 페이지 번호 외에 번호를 클릭 했을 경우
-			//(페이지번호 - 1) * 한 페이지당 출력할 갯수
+	public m_noticelist(int s) {
+		if(s>0) { 
+			
 			this.spage = (s - 1) * ea ;
 		}
 		else {
-			this.spage = s; //spl쿼리문 limit을 사용하기 위한 값			
+			this.spage = s; 		
 		}
 	}
 	

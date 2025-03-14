@@ -30,7 +30,6 @@ public class notice_writeok extends HttpServlet {
 
 		Part nfile = request.getPart("nfile");
 		long filesize = nfile.getSize();
-		this.pw.print("dddd");
 		
 		try {
 			this.con = db.db_info();

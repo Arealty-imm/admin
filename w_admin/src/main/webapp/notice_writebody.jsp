@@ -37,7 +37,7 @@
 </ul>
 </div>
 <div class="board_btn">
-    <button class="border_del">공지목록</button>
+    <button class="border_del"><a href="./notice_list.do">공지목록</a></button>
     <button class="border_add" onclick="writech()">공지등록</button>
 </div>
 </section>
