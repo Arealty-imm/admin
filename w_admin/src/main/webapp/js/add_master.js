@@ -1,15 +1,36 @@
 // 아이디 중복 체크 함수
 function idck() {
-    var admId = frm.adm_id.value;
-    if (!admId) {
+	var adm_id = document.getElementsByName("adm_id")[0].value;
+    var admId = document.getElementById("adm_id");
+  
+    if (!admId.value) {
         alert("아이디를 입력하세요.");
         return;
     }
-    console.log("아이디 중복 체크 요청: " + admId);
 
-    // 서버 응답에 따라 처리 (예시)
-    // 성공 시: alert("사용 가능한 아이디입니다.");
-    // 실패 시: alert("이미 사용 중인 아이디입니다.");
+    this.ajax_get(adm_id);
+	
+}
+
+function ajax_get(adm_id){
+	var http, result;
+	http = new XMLHttpRequest();
+	http.onreadystatechange = function(){
+		if(http.readyState == 4 && http.status == 200){
+		var result = http.responseText.trim();  // 서버에서 받은 result 값
+            if (result == 1) {
+                alert("아이디가 이미 존재합니다.");
+            } else {
+                alert("사용 가능한 아이디입니다.");
+            }	
+		}
+		
+		
+	}
+	http.open("get","./ajax_idck.do?adm_id="+adm_id,true);
+	http.send();
+			
+
 }
 
 // 관리자 등록 함수
