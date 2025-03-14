@@ -14,7 +14,7 @@
 <header class="headercss">
     <div class="header_div">
         <p><img src="./img/logo.png" class="logo_sm"> ADMINISTRATOR</p>
-        <p>[<%=adm_id %>] <%=adm_name%> 관리자 <a href="#">[개인정보 수정]</a> <a href="#">[로그아웃]</a></p>
+        <p>[<%=adm_id %>] <%=adm_name%> 관리자 <a href="#">[개인정보 수정]</a> <a href="./logout.do">[로그아웃]</a></p>
     </div>
 </header>
 <nav class="navcss">
