@@ -83,9 +83,5 @@
 <servlet-name>cancel_site</servlet-name>
 <url-pattern>/cancel_site.do</url-pattern>
 </servlet-mapping>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> branch 'main' of https://github.com/Arealty-imm/admin.git
 </web-app>
