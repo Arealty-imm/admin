@@ -4,6 +4,15 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>index</servlet-name>
+  	<servlet-class>adm_index.index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>index</servlet-name>
+  	<url-pattern>/index.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   	<servlet-name>loginok</servlet-name>
   	<servlet-class>adm_login.loginok</servlet-class>
   </servlet>
