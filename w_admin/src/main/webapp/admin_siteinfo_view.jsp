@@ -8,8 +8,6 @@ siteinfo_dto siteInfo = (siteinfo_dto) info_session.getAttribute("siteInfo");
 
 String adm_emails = (String)session.getAttribute("adm_emails");
 
-out.print(adm_emails);
-
 // 최초접속시 기본값 설정
 if (siteInfo == null) {
     siteInfo = new siteinfo_dto();

@@ -8,7 +8,7 @@
     	
     	if (adm_id == null) {
             // 로그인하지 않은 상태일 경우 로그인 페이지로 리다이렉트
-            //response.sendRedirect("./index.jsp");
+            response.sendRedirect("./index.jsp");
         }
     %>
 <header class="headercss">

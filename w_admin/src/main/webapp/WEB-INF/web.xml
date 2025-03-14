@@ -75,4 +75,12 @@
 <url-pattern>/admin_siteok.do</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>cancel_site</servlet-name>
+<servlet-class>admin_siteinfo.cancel_site</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>cancel_site</servlet-name>
+<url-pattern>/cancel_site.do</url-pattern>
+</servlet-mapping>
 </web-app>
