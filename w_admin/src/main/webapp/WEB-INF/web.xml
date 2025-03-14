@@ -4,6 +4,16 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>logout</servlet-name>
+  	<servlet-class>adm_login.logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>logout</servlet-name>
+  	<url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>	
+	
+
+  <servlet>
   	<servlet-name>index</servlet-name>
   	<servlet-class>adm_index.index</servlet-class>
   </servlet>
