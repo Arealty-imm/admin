@@ -1,34 +1,42 @@
+<%@page import="admin_siteinfo.siteinfo_dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 HttpSession info_session = request.getSession();
-String page_name = (String) info_session.getAttribute("page_name");
-String admin_mail = (String) info_session.getAttribute("admin_mail");
-String use_point = (String) info_session.getAttribute("use_point");
-int welcome_points = (Integer) info_session.getAttribute("welcome_points");
-String user_level = (String) info_session.getAttribute("user_level");
-String corp_name = (String) info_session.getAttribute("corp_name");
-String business_no = (String) info_session.getAttribute("business_no");
-String ceo_name = (String) info_session.getAttribute("ceo_name");
-String ceo_tel = (String) info_session.getAttribute("ceo_tel");
-String license_no = (String) info_session.getAttribute("license_no");
-String vas_license_no = (String) info_session.getAttribute("vas_license_no");
-String corp_post = (String) info_session.getAttribute("corp_post");
-String corp_addr = (String) info_session.getAttribute("corp_addr");
-String info_mgr = (String) info_session.getAttribute("info_mgr");
-String info_mgr_email = (String) info_session.getAttribute("info_mgr_email");
-String bank_name = (String) info_session.getAttribute("bank_name");
-String account_num = (String) info_session.getAttribute("account_num");
-String use_card = (String) info_session.getAttribute("use_card");
-String use_phone = (String) info_session.getAttribute("use_phone");
-String use_giftcard = (String) info_session.getAttribute("use_giftcard");
-int min_use_point = (Integer) info_session.getAttribute("min_use_point");
-int max_use_point = (Integer) info_session.getAttribute("max_use_point");
-String cash_receipt = (String) info_session.getAttribute("cash_receipt");
-String delivery_corp = (String) info_session.getAttribute("delivery_corp");
-int delivery_pay = (Integer) info_session.getAttribute("delivery_pay");
-String delivery_date = (String) info_session.getAttribute("delivery_date");
+siteinfo_dto siteInfo = (siteinfo_dto) info_session.getAttribute("siteInfo");
+
+// 최초접속시 기본값 설정
+if (siteInfo == null) {
+    siteInfo = new siteinfo_dto();
+}
+
+String page_name = siteInfo.getPageName();
+String admin_mail = siteInfo.getAdminMail();
+String use_point = siteInfo.getUsePoint();
+int welcome_points = siteInfo.getWelcomePoints();
+String user_level = siteInfo.getUserLevel();
+String corp_name = siteInfo.getCorpName();
+String business_no = siteInfo.getBusinessNo();
+String ceo_name = siteInfo.getCeoName();
+String ceo_tel = siteInfo.getCeoTel();
+String license_no = siteInfo.getLicenseNo();
+String vas_license_no = siteInfo.getVasLicenseNo();
+String corp_post = siteInfo.getCorpPost();
+String corp_addr = siteInfo.getCorpAddr();
+String info_mgr = siteInfo.getInfoMgr();
+String info_mgr_email = siteInfo.getInfoMgrEmail();
+String bank_name = siteInfo.getBankName();
+String account_num = siteInfo.getAccountNum();
+String use_card = siteInfo.getUseCard();
+String use_phone = siteInfo.getUsePhone();
+String use_giftcard = siteInfo.getUseGiftcard();
+int min_use_point = siteInfo.getMinUsePoint();
+int max_use_point = siteInfo.getMaxUsePoint();
+String cash_receipt = siteInfo.getCashReceipt();
+String delivery_corp = siteInfo.getDeliveryCorp();
+int delivery_pay = siteInfo.getDeliveryPay();
+String delivery_date = siteInfo.getDeliveryDate();
 %>
 <form id="frm" method="post" action="./admin_siteok.do">
 <main class="maincss">
