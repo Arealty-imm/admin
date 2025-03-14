@@ -1,5 +1,21 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+ArrayList<ArrayList<String>> notice = (ArrayList<ArrayList<String>>)request.getAttribute("result");
+
+String total_page = notice.get(0).get(5);
+int pg = 1;
+if(total_page != null || !total_page.equals(null)){
+	float pg2 = Integer.parseInt(total_page)/10f;
+	pg = (int)Math.ceil(pg2);
+}
+
+String pno = request.getParameter("pageno");
+if(pno == null || pno.equals("1")){
+	pno = "1";
+}
+%>
 <main class="maincss">
 <section>
     <p>공지사항 관리페이지</p>
@@ -12,14 +28,20 @@
         <li>날짜</li>
         <li>조회</li>
     </ul>
+    <% int total = Integer.parseInt(total_page) -((Integer.parseInt(pno)-1)*10);
+    for(int f=0; f<notice.size(); f++){ %>
     <ol>
         <li><input type="checkbox"></li>
-        <li>1</li>
-        <li>테스트 제목</li>
-        <li>관리자</li>
-        <li>2025-02-17</li>
-        <li>100</li>
+        <li><%=total%></li>
+        <li><%=notice.get(f).get(1)%></li>
+        <li><%=notice.get(f).get(2)%></li>
+        <li><%=notice.get(f).get(4).substring(0,10)%></li>
+        <li><%=notice.get(f).get(3)%></li>
     </ol>
+    <%
+    total--;
+    }
+    %>
     <ol class="none_text">
         <li>등록된 공지 내용이 없습니다.</li>
     </ol>

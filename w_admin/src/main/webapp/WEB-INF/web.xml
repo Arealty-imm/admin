@@ -54,8 +54,17 @@
 </servlet>
 <servlet-mapping>
 <servlet-name>notice_writeok</servlet-name>
-<url-pattern>/w_admin/notice_writeok.do</url-pattern>
+<url-pattern>/notice_writeok.do</url-pattern>
 </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>notice_list</servlet-name>
+  	<servlet-class>w_admin.notice_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_list</servlet-name>
+  	<url-pattern>/notice_list.do</url-pattern>
+  </servlet-mapping>
 
 <servlet>
 <servlet-name>admin_siteok</servlet-name>
@@ -66,12 +75,4 @@
 <url-pattern>/admin_siteok.do</url-pattern>
 </servlet-mapping>
 
-<servlet>
-<servlet-name>cancel_site</servlet-name>
-<servlet-class>admin_siteinfo.cancel_site</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>cancel_site</servlet-name>
-<url-pattern>/cancel_site.do</url-pattern>
-</servlet-mapping>
 </web-app>

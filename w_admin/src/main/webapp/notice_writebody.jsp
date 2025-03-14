@@ -26,7 +26,7 @@
 <ul>
     <li>첨부파일</li>
     <li>
-        <input type="file"> ※ 첨부파일 최대 용량은 2MB 입니다.       
+        <input type="file" name="nfile"> ※ 첨부파일 최대 용량은 2MB 입니다.       
     </li>
 </ul>
 <ul class="ul_height">
@@ -37,7 +37,7 @@
 </ul>
 </div>
 <div class="board_btn">
-    <button class="border_del">공지목록</button>
+    <button class="border_del"><a href="./notice_list.do">공지목록</a></button>
     <button class="border_add" onclick="writech()">공지등록</button>
 </div>
 </section>

@@ -27,7 +27,7 @@ public class notice_writeok extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		this.pw = response.getWriter();
-		
+
 		Part nfile = request.getPart("nfile");
 		long filesize = nfile.getSize();
 		
@@ -40,10 +40,10 @@ public class notice_writeok extends HttpServlet {
 			
 			String sql = "";
 			int result = 0;
-			this.pw.print("dddd");
 			if(filesize == 0) {
-				sql = "insert into notice (nidx,ncheck,subject,writer,texts,ndate)"
+				sql = "insert into notice (nidx,ncheck,subject,writer,texts,ndate) "
 					+ "values ('0',?,?,?,?,now())";
+				this.ps = this.con.prepareStatement(sql); 
 				this.ps.setString(1, ncheck);
 				this.ps.setString(2, subject);
 				this.ps.setString(3, writer);

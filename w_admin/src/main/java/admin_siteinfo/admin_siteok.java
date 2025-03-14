@@ -15,6 +15,9 @@ public class admin_siteok extends HttpServlet {
     
 	PrintWriter pw = null;
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 request.getRequestDispatcher("./admin_siteinfo.jsp").forward(request, response);
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
