@@ -30,8 +30,8 @@
                     <input type="button" id="adm_id2" class="btn_button" onclick="idch()" value="종복체크">
                 </li>
                 <li>
-                    <input type="text" name="adm_pass" class="add_input1" placeholder="접속할 패스워드를 입력하세요">
-                    <input type="text" id="adm_pass2" class="add_input1" placeholder="동일한 패스워드를 입력하세요">
+                    <input type="password" name="adm_pass" class="add_input1" placeholder="접속할 패스워드를 입력하세요">
+                    <input type="password" id="adm_pass2" class="add_input1" placeholder="동일한 패스워드를 입력하세요">
                 </li>
                 <li class="font_color1">관리자 기본정보 입력</li>
                 <li>
