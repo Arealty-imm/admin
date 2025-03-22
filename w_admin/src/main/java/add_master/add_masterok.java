@@ -16,7 +16,6 @@ import w_admin.m_dbinfo;
 
 
 public class add_masterok extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	Connection con = null;
 	PrintWriter pw = null;
 	PreparedStatement ps = null;
