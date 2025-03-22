@@ -37,7 +37,7 @@ public class ajax_idck extends HttpServlet {
 		
 		
 		try {
-			this.con = db.db_info();
+			this.con = this.db.db_info();
 			this.sql = "select adm_id from adm_info where adm_id = ?;";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.ps.setString(1, adm_id);
