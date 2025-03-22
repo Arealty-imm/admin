@@ -45,8 +45,9 @@ public class loginok extends HttpServlet {
 			String ad_ps = "";
 			String ad_name = "";
 			String ad_emails = "";
+			String permission = "";
 			
-			this.sql = "select adm_id, adm_pass, adm_name, adm_emails from adm_info where adm_id=?;";
+			this.sql = "select adm_id, adm_pass, adm_name, adm_emails, permission from adm_info where adm_id=?;";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.ps.setString(1, request.getParameter("adm_id"));
 			this.rs = this.ps.executeQuery();
@@ -55,6 +56,7 @@ public class loginok extends HttpServlet {
 				ad_ps = this.rs.getString("adm_pass");
 				ad_name = this.rs.getString("adm_name");
 				ad_emails = this.rs.getString("adm_emails");
+				permission = this.rs.getString("permission");
 			}
 			if(ad_id.equals("") || ad_ps.equals("")) {
 				this.pw.write("<script>"
@@ -70,16 +72,24 @@ public class loginok extends HttpServlet {
 					session.setAttribute("adm_id", ad_id);
 					session.setAttribute("adm_name", ad_name);
 					session.setAttribute("adm_emails", ad_emails);
+					
 
 					 System.out.println("세션 아이디: " + session.getAttribute("adm_id"));
 	                 System.out.println("세션 이름: " + session.getAttribute("adm_name"));
+	                 System.out.println("세션 이름: " + permission);
 
-	                 
-	                 this.pw.write("<script>"
-	                            + "alert('정상적으로 로그인 하셨습니다.');"
-	                            + "location.href='./admin_siteinfo.jsp';"//어디 페이지로 갈지 .. 로그인 후 메인
-	                            + "</script>");
-	              
+	                 if(permission.equals("N")) {
+	                	 this.pw.write("<script>"
+		                            + "alert('최고 관리자에게 승인을 받아야만 로그인 가능합니다.');"
+		                            + "history.go(-1);"
+		                            + "</script>");
+	                 }
+	                 else {
+	                	 this.pw.write("<script>"
+	                			 + "alert('정상적으로 로그인 하셨습니다.');"
+	                			 + "location.href='./notice_list.do';"
+	                			 + "</script>");	              
+	                 }
 				
 				}
 				else {
