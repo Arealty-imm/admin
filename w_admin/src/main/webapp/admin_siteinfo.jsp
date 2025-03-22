@@ -18,7 +18,7 @@
 </head>
 <body>
 <!-- header -->
-<%@ include file="./notice_top.jsp"%>
+<%@ include file="./top.jsp"%>
 <!-- section,footer -->
 <%@ include file="./admin_siteinfo_view.jsp"%>
 
