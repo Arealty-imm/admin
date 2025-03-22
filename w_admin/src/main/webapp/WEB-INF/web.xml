@@ -4,6 +4,24 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>login_approval</servlet-name>
+  	<servlet-class>adm_list.login_approval</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>login_approval</servlet-name>
+  	<url-pattern>/login_approval.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>admin_list</servlet-name>
+  	<servlet-class>adm_list.admin_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin_list</servlet-name>
+  	<url-pattern>/admin_list.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   	<servlet-name>ajax_idck</servlet-name>
   	<servlet-class>adm_login.ajax_idck</servlet-class>
   </servlet>
