@@ -37,11 +37,11 @@ function ajax_get(adm_id){
 function admin_add() {
     
     
-    var admId = frm.adm_id.value;
-    var admPass = frm.adm_pass.value;
-    var admPass2 = frm.adm_pass2.value;  // 수정된 부분
-    var admName = frm.adm_name.value;  // 수정된 부분
-    var admMail = frm.adm_emails.value;  // 수정된 부분
+    var admId = document.getElementsByName("adm_id")[0].value;
+    var admPass = document.getElementsByName("adm_pass")[0].value;
+    var admPass2 = frm.adm_pass2.value; 
+    var admName = frm.adm_name.value;  
+    var admMail = document.getElementsByName("adm_emails")[0].value; 
     var admTel1 = frm.adm_tel1.value;
     var admTel2 = frm.adm_tel2.value;
     var admTel3 = frm.adm_tel3.value;
@@ -54,7 +54,8 @@ function admin_add() {
     }
 
     // 비밀번호 확인 (8자 이상, 숫자, 문자, 특수문자 포함)
-    var passPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#+]{8,20}$/;
+	var passPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,20}$/;
+
 
     if (!passPattern.test(admPass)) {
         alert("비밀번호는 8자 이상, 숫자, 문자, 특수문자를 포함해야 합니다.");
