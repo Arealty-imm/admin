@@ -18,7 +18,7 @@
 </head>
 <body>
 <!-- notice_top.jsp -->
-<%@ include file="./notice_top.jsp"%>
+<%@ include file="./top.jsp"%>
 <!-- notice_top.jsp -->
 
 <!-- notice_viewbody.jsp -->
@@ -26,7 +26,7 @@
 <!-- notice_viewbody.jsp -->
 
 <!-- notice_footer.jsp -->
-<%@ include file="./notice_footer.jsp"%>
+<%@ include file="./footer.jsp"%>
 <!-- notice_footer.jsp -->
 </body>
 </html>

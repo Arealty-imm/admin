@@ -19,7 +19,7 @@
 
 <body>
 <!-- notice_top.jsp -->
-<%@ include file="./notice_top.jsp"%>
+<%@ include file="./top.jsp"%>
 <!-- notice_top.jsp -->
 
 <!-- notice_writebody.jsp -->
@@ -27,7 +27,7 @@
 <!-- notice_writebody.jsp -->
 
 <!-- notice_footer.jsp -->
-<%@ include file="./notice_footer.jsp"%>
+<%@ include file="./footer.jsp"%>
 <!-- notice_footer.jsp -->
 </body>
 <script src="./notice_write.js"></script>
