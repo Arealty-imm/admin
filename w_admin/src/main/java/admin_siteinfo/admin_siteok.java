@@ -3,6 +3,7 @@ package admin_siteinfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ public class admin_siteok extends HttpServlet {
 	PrintWriter pw = null;
 	
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
@@ -78,7 +79,7 @@ public class admin_siteok extends HttpServlet {
         if(result > 0) {
         	this.pw.write("<script>"
 					+ "alert('정상적으로 등록이 되었습니다.');"
-					+ "location.href='./admin_siteinfo.jsp';"
+					+ "location.href='./admin_siteinfo.do';"
 					+ "</script>");
         	session_siteinfo ss = new session_siteinfo(request, dto);
         } else {
@@ -87,6 +88,10 @@ public class admin_siteok extends HttpServlet {
 					+ "history.go(-1);"
 					+ "</script>");
         }
+        
 	}
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("./admin_siteinfo.jsp");
+		rd.forward(request, response);
+	}
 }

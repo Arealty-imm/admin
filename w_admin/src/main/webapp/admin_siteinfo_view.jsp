@@ -45,7 +45,7 @@ if(adm_emails != null && admin_mail == null){
 	admin_mail = adm_emails;
 }
 %>
-<form id="frm" method="get" action="./admin_siteok.do">
+<form id="frm" method="Post" action="./admin_siteok.do">
 <main class="maincss">
 <section>
     <p>홈페이지 가입환경 설정</p>

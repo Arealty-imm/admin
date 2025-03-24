@@ -85,6 +85,15 @@
   </servlet-mapping>
 
 <servlet>
+<servlet-name>admin_site</servlet-name>
+<servlet-class>admin_siteinfo.admin_siteok</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>admin_site</servlet-name>
+<url-pattern>/admin_siteinfo.do</url-pattern>
+</servlet-mapping>
+
+<servlet>
 <servlet-name>admin_siteok</servlet-name>
 <servlet-class>admin_siteinfo.admin_siteok</servlet-class>
 </servlet>
@@ -92,6 +101,7 @@
 <servlet-name>admin_siteok</servlet-name>
 <url-pattern>/admin_siteok.do</url-pattern>
 </servlet-mapping>
+
 
 <servlet>
 <servlet-name>cancel_site</servlet-name>
