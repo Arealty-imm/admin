@@ -4,6 +4,24 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>notice_edit</servlet-name>
+  	<servlet-class>w_admin.notice_edit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_edit</servlet-name>
+  	<url-pattern>/notice_edit.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>notice_view</servlet-name>
+  	<servlet-class>w_admin.notice_view</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_view</servlet-name>
+  	<url-pattern>/notice_view.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   	<servlet-name>login_approval</servlet-name>
   	<servlet-class>adm_list.login_approval</servlet-class>
   </servlet>

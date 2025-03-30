@@ -10,7 +10,7 @@
   		request.setAttribute("id", adm_id);//master 여부 확인.
     	if (adm_id == null) {
             // 로그인하지 않은 상태일 경우 로그인 페이지로 리다이렉트
-            response.sendRedirect("./index.jsp");
+            //response.sendRedirect("./index.jsp");
         }
     %>
 <header class="headercss">
@@ -25,7 +25,7 @@
             <li title="쇼핑몰 관리자 리스트"><a href="./admin_list.do">쇼핑몰 관리자 리스트</a></li>
             <li title="쇼핑몰 상품관리">쇼핑몰 상품관리</li>
             <li title="쇼핑몰 기본설정"><a href="./admin_siteinfo.do">쇼핑몰 기본설정</a></li>
-            <li title="쇼핑몰 공지사항">쇼핑몰 공지사항</li>
+            <li title="쇼핑몰 공지사항"><a href="./notice_list.do">쇼핑몰 공지사항</a></li>
         </ol>
     </div>
 </nav>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/notice_edit.do")  // 수정 요청을 처리할 URL
+  // 수정 요청을 처리할 URL
 public class notice_edit extends HttpServlet {
     private static final long serialVersionUID = 1L;
     m_dbinfo db = new m_dbinfo();

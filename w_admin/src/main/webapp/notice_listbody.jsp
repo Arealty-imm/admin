@@ -42,13 +42,19 @@ if(pno == null || pno.equals("1")){
     total--;
     }
     %>
+    <%
+    if (notice == null){
+    %>
     <ol class="none_text">
         <li>등록된 공지 내용이 없습니다.</li>
     </ol>
+    <%    	
+    }
+    %>
     </div>
     <div class="board_btn">
         <button class="border_del">공지삭제</button>
-        <button class="border_add">공지등록</button>
+        <button class="border_add"><a href="./notice_write.jsp">공지등록</a></button>
     </div>
     <div class="border_page">
         <ul class="pageing">
@@ -64,6 +70,6 @@ if(pno == null || pno.equals("1")){
 <script>
 function notice_view(no){
 	//해당 게시물의 내용 및 첨부파일을 확인할수 있는 view페이지
-	location.href='./notice_view.jsp?nidx='+no //./do로 경로변경
+	location.href='./notice_view.do?nidx='+no //./do로 경로변경
 }
 </script>
