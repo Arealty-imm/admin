@@ -4,6 +4,15 @@
   <display-name>w_admin</display-name>
 
   <servlet>
+  	<servlet-name>notice_delete</servlet-name>
+  	<servlet-class>w_admin.notice_delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice_delete</servlet-name>
+  	<url-pattern>/notice_delete.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   	<servlet-name>notice_edit</servlet-name>
   	<servlet-class>w_admin.notice_edit</servlet-class>
   </servlet>

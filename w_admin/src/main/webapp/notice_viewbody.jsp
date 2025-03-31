@@ -53,13 +53,33 @@ String encodedFile = URLEncoder.encode(fileName, "UTF-8").replace("+", "%20");
     </li>
 </ul>
 </div>
-<div class="board_btn">
-    <button class="border_del"><a href="./notice_list.do">공지목록</a></button>
-    <button class="border_add">공지수정</button>
-    <button class="border_modify" style="margin-left: 8px;">공지삭제</button>
-</div>
+<form id="actionForm" method="post">
+    <input type="hidden" name="nidx" value="<%=views.get(0)%>">
+    <div class="board_btn">
+        <button type="button" class="border_del" onclick="location.href='./notice_list.do'">공지목록</button>
+        <button type="button" class="border_add" onclick="goUpdate()">공지수정</button>
+        <button type="button" class="border_modify" style="margin-left: 8px;" onclick="goDelete()">공지삭제</button>
+    </div>
+</form>
 </section>
 </main>
+
+<script>
+function goUpdate() {
+    var nidx = document.querySelector('input[name="nidx"]').value;
+    location.href = './notice_update.jsp?nidx=' + nidx;
+}
+
+function goDelete() {
+    if (confirm("해당 게시물을 삭제하시겠습니까? 복구되지 않습니다.")) {
+        const form = document.getElementById('actionForm');
+        form.action = './notice_delete.do';
+        form.submit(); 
+    }
+}
+</script>
+
 <%
 	}
 %>
+
